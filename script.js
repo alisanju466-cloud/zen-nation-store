@@ -10,7 +10,7 @@ const products = [
     name: "ZEN Black T-Shirt",
     category: "Fashion",
     price: 999,
-    image: "images/black-tshirt.jpg"
+      icon: "📱"
 }
     },
 
@@ -19,7 +19,7 @@ const products = [
         name: "Luxury Gold Watch",
         category: "Accessories",
         price: 5999,
-       image: "images/black-tshirt.jpg"
+         icon: "📱"
     },
 
     {
@@ -27,7 +27,7 @@ const products = [
         name: "Premium Wireless Headphones",
         category: "Electronics",
         price: 7999,
-       image: "images/black-tshirt.jpg"
+         icon: "📱"
     },
 
     {
@@ -35,7 +35,7 @@ const products = [
         name: "Signature Perfume",
         category: "Beauty",
         price: 3499,
-       image: "images/black-tshirt.jpg"
+       icon: "📱"
     },
 
     {
@@ -51,7 +51,7 @@ const products = [
         name: "Golden Sunglasses",
         category: "Accessories",
         price: 2999,
-        icon: "🕶️"
+       icon: "📱"
     },
 
     {
