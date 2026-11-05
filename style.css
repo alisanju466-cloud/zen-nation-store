@@ -1036,5 +1036,6 @@ body {
     box-shadow: 0 0 30px rgba(212, 175, 55, .2) !important;
     border-color: #d4af37 !important;
 }
-body{
+body {
+    background: #080808 !important;
 }
