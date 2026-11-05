@@ -389,27 +389,136 @@ function closeCartOutside(event) {
 }
 
 
+
 /* =========================
-   CHECKOUT
+   ZEN NATION CHECKOUT
 ========================= */
 
-function checkout() {
+const zenSupabase = window.supabase.createClient(
+    window.ZEN_CONFIG.SUPABASE_URL,
+    window.ZEN_CONFIG.SUPABASE_ANON_KEY
+);
+
+async function checkout() {
 
     if (cart.length === 0) {
-
         alert("Your cart is empty.");
-
         return;
-
     }
 
+    const customer_name = prompt("Enter your full name:");
+    if (!customer_name || !customer_name.trim()) return;
 
-    alert(
-        "ZEN NATION checkout is ready for integration. " +
-        "Connect a payment provider to accept real payments."
+    const phone = prompt("Enter your phone number:");
+    if (!phone || !phone.trim()) return;
+
+    const address = prompt("Enter your full delivery address:");
+    if (!address || !address.trim()) return;
+
+    const payment = prompt(
+        "Choose payment method:\n\n" +
+        "1 = Cash on Delivery\n" +
+        "2 = UPI Manual Payment"
     );
 
+    if (payment !== "1" && payment !== "2") {
+        alert("Invalid payment selection.");
+        return;
+    }
+
+    const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+    );
+
+    let payment_method = payment === "1" ? "COD" : "UPI";
+    let payment_status = "unpaid";
+    let utr_number = null;
+
+    if (payment_method === "UPI") {
+
+        const upiLink =
+            "upi://pay?pa=sanjuxrich@fam" +
+            "&pn=ZEN%20NATION" +
+            "&am=" + total.toFixed(2) +
+            "&cu=INR" +
+            "&tn=ZEN%20NATION%20Order";
+
+        alert(
+            "Pay ₹" + total.toLocaleString("en-IN") +
+            " to sanjuxrich@fam using your UPI app.\n\n" +
+            "After payment, return here and enter your UTR number."
+        );
+
+        window.open(upiLink, "_blank");
+
+        utr_number = prompt(
+            "Enter your UPI UTR / transaction reference number:"
+        );
+
+        if (!utr_number || !utr_number.trim()) {
+            alert("UTR number is required for UPI orders.");
+            return;
+        }
+
+        payment_status = "pending";
+    }
+
+    const order = {
+        customer_name: customer_name.trim(),
+        phone: phone.trim(),
+        address: address.trim(),
+        items: cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity
+        })),
+        total: total,
+        payment_method: payment_method,
+        payment_status: payment_status,
+        utr_number: utr_number,
+        order_status: "pending"
+    };
+
+    try {
+
+        const { data, error } = await zenSupabase
+            .from("zen_orders")
+            .insert([order])
+            .select("id")
+            .single();
+
+        if (error) throw error;
+
+        alert(
+            "ZEN NATION ORDER SUCCESSFUL!\n\n" +
+            "Order ID: " + data.id + "\n" +
+            "Payment: " + payment_method + "\n" +
+            "Status: " +
+            (payment_method === "UPI"
+                ? "Awaiting payment approval"
+                : "COD order received") +
+            "\n\nWe will contact you on WhatsApp."
+        );
+
+        cart = [];
+        saveCart();
+        updateCart();
+        toggleCart();
+
+    } catch (error) {
+
+        console.error("Order error:", error);
+
+        alert(
+            "Order could not be submitted.\n\n" +
+            error.message
+        );
+
+    }
 }
+
 
 
 /* =========================
