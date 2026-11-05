@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZEN NATION | Admin</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="admin.js"></script>
+</head>
+<body class="admin-body">
+<header class="navbar">
+  <a class="logo" href="index.html"><span>ZEN</span> NATION</a>
+  <nav><a href="index.html">View store</a></nav>
+  <span class="eyebrow">ADMIN STUDIO</span>
+</header>
+
+<main class="admin-wrap">
+  <div class="admin-heading">
+    <p class="eyebrow">ZEN NATION / CONTROL ROOM</p>
+    <h1>Store <span>management.</span></h1>
+    <p class="muted">Add products, upload photos, update prices and manage stock.</p>
+  </div>
+
+  <section id="setup-warning" class="notice hidden"></section>
+
+  <section id="login-card" class="panel login-panel">
+    <p class="eyebrow">AUTHORISED ACCESS</p>
+    <h2>Admin login</h2>
+    <form id="login-form" class="form-grid">
+      <label>Email<input id="email" type="email" required autocomplete="username" placeholder="you@example.com"></label>
+      <label>Password<input id="password" type="password" required autocomplete="current-password" placeholder="Your admin password"></label>
+      <button class="gold-btn" type="submit">SIGN IN</button>
+      <p id="login-message" class="form-message"></p>
+    </form>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <div class="dashbar"><div><p class="eyebrow">YOUR CATALOGUE</p><h2>Products</h2></div><button id="logout" class="outline-btn">Sign out</button></div>
+    <div class="admin-columns">
+      <section class="panel">
+        <p class="eyebrow">PRODUCT EDITOR</p>
+        <h2 id="form-title">Add a product</h2>
+        <form id="product-form" class="form-grid">
+          <label>Product name<input id="p-name" maxlength="100" required placeholder="Premium black hoodie"></label>
+          <div class="two-fields">
+            <label>Price (₹)<input id="p-price" type="number" min="0" step="0.01" required placeholder="2499"></label>
+            <label>Compare-at price (₹)<input id="p-compare" type="number" min="0" step="0.01" placeholder="2999"></label>
+          </div>
+          <div class="two-fields">
+            <label>Category<select id="p-category" required>
+              <option>Fashion</option><option>Electronics</option><option>Beauty</option><option>Home</option><option>Accessories</option><option>Other</option>
+            </select></label>
+            <label>Stock quantity<input id="p-stock" type="number" min="0" step="1" required value="10"></label>
+          </div>
+          <label>Description<textarea id="p-description" rows="3" maxlength="1000" placeholder="Describe the product…"></textarea></label>
+          <label>Product photo<input id="p-image" type="file" accept="image/*"></label>
+          <img id="image-preview" class="image-preview hidden" alt="Selected product preview">
+          <p class="muted small">Choose a JPG, PNG or WebP image. Keep it under 5 MB.</p>
+          <div class="form-actions"><button class="gold-btn" type="submit" id="save-product">SAVE PRODUCT</button><button class="outline-btn" type="button" id="cancel-edit">CLEAR</button></div>
+          <p id="product-message" class="form-message"></p>
+        </form>
+      </section>
+
+      <section class="panel catalogue-panel">
+        <div class="catalogue-title"><div><p class="eyebrow">LIVE CATALOGUE</p><h2>Your listings</h2></div><span id="product-count" class="count-pill">0 products</span></div>
+        <div id="admin-products" class="admin-products"></div>
+      </section>
+    </div>
+  </section>
+</main>
+<footer><strong>ZEN NATION</strong><span>Private store administration</span><a href="index.html">Back to shop</a></footer>
+</body>
+</html>
