@@ -10,96 +10,9 @@ const products = [
         category: "Fashion",
         price: 999,
         icon: "👕",
-        image: "images/black-tshirt.jpg"
+        image: "images/tshirt.png"
     },
-    {
-        id: 2,
-        name: "Luxury Gold Watch",
-        category: "Accessories",
-        price: 5999,
-        icon: "⌚",
-        image: "images/watch.jpg"
-    },
-    {
-        id: 3,
-        name: "Premium Wireless Headphones",
-        category: "Electronics",
-        price: 7999,
-        icon: "🎧",
-        image: "images/headphones.jpg"
-    },
-    {
-        id: 4,
-        name: "Signature Perfume",
-        category: "Beauty",
-        price: 3499,
-        icon: "🧴",
-        image: "images/perfume.jpg"
-    },
-    {
-        id: 5,
-        name: "Minimal Black Sneakers",
-        category: "Fashion",
-        price: 4499,
-        icon: "👟",
-        image: "images/sneakers.jpg"
-    },
-    {
-        id: 6,
-        name: "Golden Sunglasses",
-        category: "Accessories",
-        price: 2999,
-        icon: "🕶️",
-        image: "images/sunglasses.jpg"
-    },
-    {
-        id: 7,
-        name: "Smart Phone Pro",
-        category: "Electronics",
-        price: 49999,
-        icon: "📱",
-        image: "images/phone.jpg"
-    },
-    {
-        id: 8,
-        name: "Luxury Home Lamp",
-        category: "Home",
-        price: 3999,
-        icon: "💡",
-        image: "images/lamp.jpg"
-    },
-    {
-        id: 9,
-        name: "Premium Leather Bag",
-        category: "Fashion",
-        price: 6999,
-        icon: "👜",
-        image: "images/bag.jpg"
-    },
-    {
-        id: 10,
-        name: "Gold Bracelet",
-        category: "Accessories",
-        price: 1999,
-        icon: "✨",
-        image: "images/bracelet.jpg"
-    },
-    {
-        id: 11,
-        name: "Aroma Candle",
-        category: "Home",
-        price: 1299,
-        icon: "🕯️",
-        image: "images/candle.jpg"
-    },
-    {
-        id: 12,
-        name: "Luxury Face Serum",
-        category: "Beauty",
-        price: 2499,
-        icon: "💎",
-        image: "images/serum.jpg"
-    }
+   
 ];
 
 
