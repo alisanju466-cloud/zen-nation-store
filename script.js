@@ -6,7 +6,7 @@ const products = [
 
     {
       {
-    id: 13,
+    id: 1,
     name: "ZEN Black T-Shirt",
     category: "Fashion",
     price: 999,
