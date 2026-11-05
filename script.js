@@ -483,17 +483,14 @@ async function checkout() {
 
     try {
 
-        const { data, error } = await zenSupabase
-            .from("zen_orders")
-            .insert([order])
-            .select("id")
-            .single();
+       const { error } = await zenSupabase
+    .from("zen_orders")
+    .insert([order]);
 
-        if (error) throw error;
+if (error) throw error;
 
         alert(
             "ZEN NATION ORDER SUCCESSFUL!\n\n" +
-            "Order ID: " + data.id + "\n" +
             "Payment: " + payment_method + "\n" +
             "Status: " +
             (payment_method === "UPI"
