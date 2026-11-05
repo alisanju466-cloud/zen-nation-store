@@ -152,8 +152,8 @@ function displayProducts(list) {
         card.innerHTML = `
 
             <div class="product-image">
-                ${product.icon}
-            </div>
+    <img src="${product.image}" alt="${product.name}">
+</div>
 
             <div class="product-info">
 
