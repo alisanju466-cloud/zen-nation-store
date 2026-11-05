@@ -805,3 +805,121 @@ footer {
     display: block;
 }
 }
+/* =================================
+   ZEN NATION - PREMIUM BG EFFECT
+================================= */
+
+html {
+    background: #070707;
+}
+
+body {
+    background-color: #070707;
+    background-image:
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(212, 175, 55, 0.13),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 85% 55%,
+            rgba(212, 175, 55, 0.09),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(212, 175, 55, 0.07),
+            transparent 45%
+        );
+
+    background-size: 150% 150%;
+    animation: luxuryBackground 14s ease-in-out infinite alternate;
+    isolation: isolate;
+    overflow-x: hidden;
+}
+
+/* Golden floating particles */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, rgba(255,215,100,.7) 50%, transparent 100%),
+        radial-gradient(2px 2px at 30% 70%, rgba(255,215,100,.5) 50%, transparent 100%),
+        radial-gradient(2px 2px at 55% 35%, rgba(255,215,100,.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 75% 80%, rgba(255,215,100,.5) 50%, transparent 100%),
+        radial-gradient(2px 2px at 90% 15%, rgba(255,215,100,.7) 50%, transparent 100%);
+
+    background-size: 350px 350px;
+    animation: floatingParticles 25s linear infinite;
+}
+
+/* Subtle luxury grid */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(212,175,55,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(212,175,55,.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 65px 65px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 90%
+    );
+}
+
+/* Background animation */
+
+@keyframes luxuryBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes floatingParticles {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 350px 700px;
+    }
+}
+
+/* Smooth scrolling */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Premium button hover */
+
+.gold-button,
+.checkout-button {
+    transition: all .35s ease;
+}
+
+.gold-button:hover
