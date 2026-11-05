@@ -907,3 +907,43 @@ body::after,
 }
 
                           }
+/* FORCE GOLDEN BACKGROUND EFFECTS */
+
+html {
+background: #050505 !important;
+}
+
+body {
+background: transparent !important;
+position: relative;
+isolation: isolate;
+}
+
+body::before {
+z-index: -2 !important;
+}
+
+body::after {
+z-index: -1 !important;
+}
+
+/* Make sections transparent */
+
+.categories,
+.shop,
+.about {
+background-color: rgba(8,8,8,.45) !important;
+}
+
+/* Stronger golden lighting */
+
+body::after {
+background:
+radial-gradient(circle at 15% 30%, rgba(255,190,40,.22), transparent 35%),
+radial-gradient(circle at 85% 70%, rgba(212,175,55,.20), transparent 40%),
+radial-gradient(circle at 50% 50%, rgba(212,175,55,.10), transparent 50%) !important;
+
+filter: blur(50px);
+animation: goldenAurora 8s ease-in-out infinite alternate !important;
+
+}
