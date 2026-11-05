@@ -965,3 +965,74 @@ footer {
     }
 
 }
+/* ZEN NATION VISIBLE GOLDEN EFFECT */
+
+body {
+    background-color: #050505 !important;
+    background-image:
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(255, 190, 40, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(212, 175, 55, 0.18),
+            transparent 35%
+        ) !important;
+    background-attachment: fixed;
+}
+
+/* Golden lighting on sections */
+
+.hero,
+.categories,
+.shop,
+.about {
+    background-color: transparent !important;
+    background-image:
+        radial-gradient(
+            ellipse at 80% 40%,
+            rgba(212, 175, 55, 0.07),
+            transparent 55%
+        ) !important;
+}
+
+/* Animated golden glow */
+
+.hero {
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.12);
+    filter: blur(100px);
+    right: 5%;
+    top: 20%;
+    pointer-events: none;
+    animation: zenGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes zenGlow {
+    from {
+        transform: translate(-30px, -20px);
+        opacity: .4;
+    }
+
+    to {
+        transform: translate(30px, 30px);
+        opacity: 1;
+    }
+}
+
+/* Product glow */
+
+.product:hover {
+    box-shadow: 0 0 30px rgba(212, 175, 55, .2) !important;
+    border-color: #d4af37 !important;
+}
