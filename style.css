@@ -1,7 +1,10 @@
-/* =========================
+/* =========================================
    ZEN NATION
    LUXURY BLACK & GOLD
-========================= */
+   COMPLETE STYLESHEET
+========================================= */
+
+/* RESET */
 
 * {
     margin: 0;
@@ -11,23 +14,7 @@
 
 html {
     scroll-behavior: smooth;
-}
-
-body {
     background: #080808;
-    color: #f5f5f5;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font-family: inherit;
-    cursor: pointer;
 }
 
 :root {
@@ -40,10 +27,116 @@ button {
     --border: rgba(212, 175, 55, 0.25);
 }
 
+body {
+    background: transparent;
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    isolation: isolate;
+    position: relative;
+}
 
-/* =========================
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   ANIMATED LUXURY BACKGROUND
+========================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            2px 2px at 10% 20%,
+            rgba(241,215,122,.8),
+            transparent
+        ),
+        radial-gradient(
+            2px 2px at 30% 70%,
+            rgba(241,215,122,.6),
+            transparent
+        ),
+        radial-gradient(
+            2px 2px at 55% 35%,
+            rgba(241,215,122,.7),
+            transparent
+        ),
+        radial-gradient(
+            2px 2px at 75% 80%,
+            rgba(241,215,122,.5),
+            transparent
+        ),
+        radial-gradient(
+            2px 2px at 90% 15%,
+            rgba(241,215,122,.8),
+            transparent
+        );
+
+    background-size: 350px 350px;
+
+    animation: goldenParticles 30s linear infinite;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: -40%;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 30% 30%,
+            rgba(212,175,55,.12),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 70% 65%,
+            rgba(212,175,55,.09),
+            transparent 40%
+        );
+
+    animation: goldenAurora 15s ease-in-out infinite alternate;
+}
+
+@keyframes goldenParticles {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 350px 700px;
+    }
+}
+
+@keyframes goldenAurora {
+    0% {
+        transform: translate(-3%, -2%) scale(1);
+    }
+
+    100% {
+        transform: translate(3%, 2%) scale(1.1);
+    }
+}
+
+
+/* =========================================
    NAVBAR
-========================= */
+========================================= */
 
 .navbar {
     position: sticky;
@@ -58,6 +151,7 @@ button {
 
     background: rgba(8, 8, 8, 0.92);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
     border-bottom: 1px solid var(--border);
 }
@@ -82,8 +176,7 @@ nav a {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 2px;
-
-    transition: 0.3s;
+    transition: .3s;
 }
 
 nav a:hover {
@@ -96,15 +189,16 @@ nav a:hover {
     color: var(--gold);
 
     padding: 10px 18px;
-
     border-radius: 3px;
 
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .cart-button:hover {
     background: var(--gold);
     color: #000;
+
+    box-shadow: 0 0 20px rgba(212,175,55,.2);
 }
 
 #cart-count {
@@ -125,9 +219,9 @@ nav a:hover {
 }
 
 
-/* =========================
+/* =========================================
    HERO
-========================= */
+========================================= */
 
 .hero {
     min-height: 90vh;
@@ -140,13 +234,13 @@ nav a:hover {
     background:
         radial-gradient(
             circle at 75% 40%,
-            rgba(212,175,55,0.15),
+            rgba(212,175,55,.15),
             transparent 35%
         ),
         linear-gradient(
             135deg,
-            #050505 0%,
-            #121212 100%
+            rgba(5,5,5,.96),
+            rgba(18,18,18,.92)
         );
 
     position: relative;
@@ -161,12 +255,23 @@ nav a:hover {
     width: 500px;
     height: 500px;
 
-    border: 1px solid rgba(212,175,55,0.12);
-
+    border: 1px solid rgba(212,175,55,.12);
     border-radius: 50%;
 
     right: -200px;
     top: 100px;
+
+    animation: heroCircle 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroCircle {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+
+    to {
+        transform: scale(1.15) rotate(25deg);
+    }
 }
 
 .hero-content {
@@ -185,7 +290,7 @@ nav a:hover {
 
 .hero h1 {
     font-size: clamp(50px, 9vw, 110px);
-    line-height: 0.95;
+    line-height: .95;
 
     text-transform: uppercase;
     letter-spacing: -3px;
@@ -216,18 +321,20 @@ nav a:hover {
     font-weight: bold;
     letter-spacing: 3px;
 
-    transition: 0.3s;
+    transition: .35s;
 }
 
 .gold-button:hover {
     background: var(--gold-light);
     transform: translateY(-3px);
+
+    box-shadow: 0 0 30px rgba(212,175,55,.35);
 }
 
 
-/* =========================
+/* =========================================
    SECTIONS
-========================= */
+========================================= */
 
 section {
     padding: 100px 7%;
@@ -250,28 +357,24 @@ section {
 }
 
 
-/* =========================
+/* =========================================
    CATEGORIES
-========================= */
+========================================= */
 
 .categories {
-    background: #0c0c0c;
+    background: rgba(12,12,12,.82);
 }
 
 .category-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(6, 1fr);
-
+    grid-template-columns: repeat(6, 1fr);
     gap: 15px;
 }
 
 .category-grid button {
     min-height: 130px;
 
-    background: #111;
-
+    background: rgba(17,17,17,.85);
     color: #fff;
 
     border: 1px solid #222;
@@ -279,14 +382,13 @@ section {
     font-size: 13px;
     letter-spacing: 1px;
 
-    transition: 0.3s;
+    transition: .35s;
 }
 
 .category-grid button span {
     display: block;
 
     color: var(--gold);
-
     font-size: 28px;
 
     margin-bottom: 10px;
@@ -295,15 +397,17 @@ section {
 .category-grid button:hover {
     border-color: var(--gold);
     transform: translateY(-5px);
+
+    box-shadow: 0 0 25px rgba(212,175,55,.12);
 }
 
 
-/* =========================
+/* =========================================
    SHOP
-========================= */
+========================================= */
 
 .shop {
-    background: #080808;
+    background: rgba(8,8,8,.75);
 }
 
 .shop-header {
@@ -325,45 +429,44 @@ section {
     padding: 15px;
 
     background: #111;
-
     color: white;
 
     border: 1px solid #333;
-
     outline: none;
+
+    transition: .3s;
 }
 
 .search-box input:focus {
     border-color: var(--gold);
+    box-shadow: 0 0 15px rgba(212,175,55,.1);
 }
 
 
-/* =========================
+/* =========================================
    PRODUCTS
-========================= */
+========================================= */
 
 .product-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
 }
 
 .product {
-    background: #111;
+    background: rgba(17,17,17,.95);
 
     border: 1px solid #222;
-
     overflow: hidden;
 
-    transition: 0.35s;
+    transition: .4s;
 }
 
 .product:hover {
     transform: translateY(-8px);
     border-color: var(--gold);
+
+    box-shadow: 0 10px 35px rgba(212,175,55,.13);
 }
 
 .product-image {
@@ -375,14 +478,28 @@ section {
 
     font-size: 70px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #151515,
-            #080808
-        );
+    background: linear-gradient(
+        135deg,
+        #151515,
+        #080808
+    );
 
     position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+
+    transition: transform .6s ease;
+}
+
+.product:hover .product-image img {
+    transform: scale(1.06);
 }
 
 .product-image::after {
@@ -393,10 +510,12 @@ section {
     bottom: 12px;
     right: 12px;
 
-    color: rgba(212,175,55,0.35);
+    color: rgba(212,175,55,.55);
 
     font-size: 9px;
     letter-spacing: 3px;
+
+    pointer-events: none;
 }
 
 .product-info {
@@ -407,17 +526,13 @@ section {
     color: var(--gold);
 
     font-size: 10px;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
 }
 
 .product-name {
     font-size: 17px;
-
     margin: 8px 0;
-
     min-height: 50px;
 }
 
@@ -425,7 +540,6 @@ section {
     color: #fff;
 
     font-size: 20px;
-
     font-weight: bold;
 
     margin-bottom: 18px;
@@ -437,33 +551,33 @@ section {
     background: transparent;
 
     border: 1px solid var(--gold);
-
     color: var(--gold);
 
     padding: 12px;
 
     letter-spacing: 2px;
-
     font-size: 10px;
 
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .add-cart:hover {
     background: var(--gold);
     color: #000;
+
+    box-shadow: 0 0 20px rgba(212,175,55,.2);
 }
 
 
-/* =========================
+/* =========================================
    ABOUT
-========================= */
+========================================= */
 
 .about {
     background:
         linear-gradient(
-            rgba(0,0,0,0.8),
-            rgba(0,0,0,0.8)
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.82)
         ),
         #111;
 
@@ -478,7 +592,6 @@ section {
 .about h2 {
     font-size: 55px;
     line-height: 1;
-
     margin-bottom: 30px;
 }
 
@@ -492,12 +605,14 @@ section {
 }
 
 
-/* =========================
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 footer {
     padding: 45px 7%;
+
+    background: #080808;
 
     border-top: 1px solid #222;
 
@@ -506,15 +621,12 @@ footer {
     align-items: center;
 
     color: #777;
-
     font-size: 12px;
 }
 
 .footer-logo {
     color: var(--gold);
-
     letter-spacing: 4px;
-
     font-weight: bold;
 }
 
@@ -523,28 +635,31 @@ footer {
     gap: 20px;
 }
 
+.footer-links a {
+    transition: .3s;
+}
+
 .footer-links a:hover {
     color: var(--gold);
 }
 
 
-/* =========================
+/* =========================================
    CART
-========================= */
+========================================= */
 
 .cart-overlay {
     position: fixed;
-
     inset: 0;
 
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,.7);
 
     z-index: 2000;
 
     visibility: hidden;
     opacity: 0;
 
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .cart-overlay.active {
@@ -559,7 +674,6 @@ footer {
     top: 0;
 
     width: min(430px, 100%);
-
     height: 100%;
 
     background: #0c0c0c;
@@ -575,7 +689,6 @@ footer {
 .cart-header {
     display: flex;
     justify-content: space-between;
-
     align-items: center;
 
     padding-bottom: 25px;
@@ -602,12 +715,9 @@ footer {
 
 .cart-item {
     display: grid;
-
-    grid-template-columns:
-        55px 1fr auto;
+    grid-template-columns: 55px 1fr auto;
 
     gap: 12px;
-
     align-items: center;
 
     padding: 15px 0;
@@ -624,7 +734,6 @@ footer {
     justify-content: center;
 
     background: #181818;
-
     font-size: 25px;
 }
 
@@ -634,7 +743,6 @@ footer {
 
 .cart-item-price {
     color: var(--gold);
-
     font-size: 12px;
 }
 
@@ -651,9 +759,7 @@ footer {
     height: 22px;
 
     background: #222;
-
     color: white;
-
     border: 0;
 }
 
@@ -666,7 +772,6 @@ footer {
 
 .cart-bottom {
     border-top: 1px solid #222;
-
     padding-top: 25px;
 }
 
@@ -675,7 +780,6 @@ footer {
     justify-content: space-between;
 
     font-size: 20px;
-
     margin-bottom: 20px;
 }
 
@@ -687,7 +791,6 @@ footer {
     width: 100%;
 
     background: var(--gold);
-
     color: #000;
 
     border: 0;
@@ -695,31 +798,31 @@ footer {
     padding: 16px;
 
     font-weight: bold;
-
     letter-spacing: 3px;
+
+    transition: .3s;
 }
 
 .checkout-button:hover {
     background: var(--gold-light);
+    box-shadow: 0 0 25px rgba(212,175,55,.25);
 }
 
 
-/* =========================
+/* =========================================
    EMPTY CART
-========================= */
+========================================= */
 
 .empty-cart {
     text-align: center;
-
     color: #777;
-
     padding: 70px 10px;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
 
 @media (max-width: 1000px) {
 
@@ -728,16 +831,19 @@ footer {
     }
 
     .category-grid {
-        grid-template-columns:
-            repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .product-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
+
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
 
 @media (max-width: 650px) {
 
@@ -747,11 +853,16 @@ footer {
 
     .logo {
         font-size: 17px;
+        letter-spacing: 3px;
+    }
+
+    .cart-button {
+        padding: 9px 12px;
+        font-size: 12px;
     }
 
     .hero {
         min-height: 75vh;
-
         padding: 60px 6%;
     }
 
@@ -759,18 +870,24 @@ footer {
         font-size: 52px;
     }
 
+    .hero-text {
+        font-size: 15px;
+    }
+
     section {
         padding: 70px 5%;
     }
 
     .category-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .product-grid {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 280px;
     }
 
     .shop-header {
@@ -798,128 +915,53 @@ footer {
         gap: 20px;
         text-align: center;
     }
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-}
-/* =================================
-   ZEN NATION - PREMIUM BG EFFECT
-================================= */
 
-html {
-    background: #070707;
-}
-
-body {
-    background-color: #070707;
-    background-image:
-        radial-gradient(
-            ellipse at 15% 20%,
-            rgba(212, 175, 55, 0.13),
-            transparent 40%
-        ),
-        radial-gradient(
-            ellipse at 85% 55%,
-            rgba(212, 175, 55, 0.09),
-            transparent 38%
-        ),
-        radial-gradient(
-            ellipse at 50% 100%,
-            rgba(212, 175, 55, 0.07),
-            transparent 45%
-        );
-
-    background-size: 150% 150%;
-    animation: luxuryBackground 14s ease-in-out infinite alternate;
-    isolation: isolate;
-    overflow-x: hidden;
-}
-
-/* Golden floating particles */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-
-    background-image:
-        radial-gradient(2px 2px at 10% 20%, rgba(255,215,100,.7) 50%, transparent 100%),
-        radial-gradient(2px 2px at 30% 70%, rgba(255,215,100,.5) 50%, transparent 100%),
-        radial-gradient(2px 2px at 55% 35%, rgba(255,215,100,.6) 50%, transparent 100%),
-        radial-gradient(2px 2px at 75% 80%, rgba(255,215,100,.5) 50%, transparent 100%),
-        radial-gradient(2px 2px at 90% 15%, rgba(255,215,100,.7) 50%, transparent 100%);
-
-    background-size: 350px 350px;
-    animation: floatingParticles 25s linear infinite;
-}
-
-/* Subtle luxury grid */
-
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-
-    background-image:
-        linear-gradient(
-            rgba(212,175,55,.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(212,175,55,.025) 1px,
-            transparent 1px
-        );
-
-    background-size: 65px 65px;
-
-    mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent 90%
-    );
-}
-
-/* Background animation */
-
-@keyframes luxuryBackground {
-    0% {
-        background-position: 0% 0%;
+    .footer-links {
+        justify-content: center;
     }
 
-    100% {
-        background-position: 100% 100%;
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .logo {
+        font-size: 14px;
+        letter-spacing: 2px;
     }
-}
 
-@keyframes floatingParticles {
-    from {
-        background-position: 0 0;
+    .hero h1 {
+        font-size: 43px;
     }
 
-    to {
-        background-position: 350px 700px;
+    .cart {
+        padding: 20px;
     }
+
 }
 
-/* Smooth scrolling */
 
-html {
-    scroll-behavior: smooth;
-}
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
 
-/* Premium button hover */
+@media (prefers-reduced-motion: reduce) {
 
-.gold-button,
-.checkout-button {
-    transition: all .35s ease;
-}
+    body::before,
+    body::after,
+    .hero::before {
+        animation: none !important;
+    }
 
-.gold-button:hover
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+
+   }
