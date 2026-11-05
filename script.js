@@ -12,9 +12,23 @@ const products = [
         icon: "👕",
         image: "images/tshirt.png"
     },
-   
+    {
+        id: 2,
+        name: "ZEN White T-Shirt",
+        category: "Fashion",
+        price: 999,
+        icon: "👕",
+        image: "images/white-tshirt.png"
+    },
+    {
+        id: 3,
+        name: "ZEN Hoodie",
+        category: "Fashion",
+        price: 1499,
+        icon: "🧥",
+        image: "images/hoodie.png"
+    }
 ];
-
 
 /* =========================
    CART
