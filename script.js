@@ -1,113 +1,105 @@
+
 /* =========================
    ZEN NATION PRODUCTS
 ========================= */
 
 const products = [
-
     {
-      {
-    id: 1,
-    name: "ZEN Black T-Shirt",
-    category: "Fashion",
-    price: 999,
-      icon: "📱"
-}
+        id: 1,
+        name: "ZEN Black T-Shirt",
+        category: "Fashion",
+        price: 999,
+        icon: "👕",
+        image: "images/black-tshirt.jpg"
     },
-
     {
         id: 2,
         name: "Luxury Gold Watch",
         category: "Accessories",
         price: 5999,
-         icon: "📱"
+        icon: "⌚",
+        image: "images/watch.jpg"
     },
-
     {
         id: 3,
         name: "Premium Wireless Headphones",
         category: "Electronics",
         price: 7999,
-         icon: "📱"
+        icon: "🎧",
+        image: "images/headphones.jpg"
     },
-
     {
         id: 4,
         name: "Signature Perfume",
         category: "Beauty",
         price: 3499,
-       icon: "📱"
+        icon: "🧴",
+        image: "images/perfume.jpg"
     },
-
     {
         id: 5,
         name: "Minimal Black Sneakers",
         category: "Fashion",
         price: 4499,
-        icon: "👟"
+        icon: "👟",
+        image: "images/sneakers.jpg"
     },
-
     {
         id: 6,
         name: "Golden Sunglasses",
         category: "Accessories",
         price: 2999,
-       icon: "📱"
+        icon: "🕶️",
+        image: "images/sunglasses.jpg"
     },
-
     {
         id: 7,
         name: "Smart Phone Pro",
         category: "Electronics",
         price: 49999,
-        icon: "📱"
+        icon: "📱",
+        image: "images/phone.jpg"
     },
-
     {
         id: 8,
         name: "Luxury Home Lamp",
         category: "Home",
         price: 3999,
-        icon: "💡"
+        icon: "💡",
+        image: "images/lamp.jpg"
     },
-
     {
         id: 9,
         name: "Premium Leather Bag",
         category: "Fashion",
         price: 6999,
-        icon: "👜"
+        icon: "👜",
+        image: "images/bag.jpg"
     },
-
     {
         id: 10,
         name: "Gold Bracelet",
         category: "Accessories",
         price: 1999,
-        icon: "✨"
+        icon: "✨",
+        image: "images/bracelet.jpg"
     },
-
     {
         id: 11,
         name: "Aroma Candle",
         category: "Home",
         price: 1299,
-        icon: "🕯️"
+        icon: "🕯️",
+        image: "images/candle.jpg"
     },
-
     {
         id: 12,
         name: "Luxury Face Serum",
         category: "Beauty",
         price: 2499,
-        icon: "💎"
+        icon: "💎",
+        image: "images/serum.jpg"
     }
-{
-    id: 13,
-    name: "ZEN Black T-Shirt",
-    category: "Fashion",
-    price: 999,
-    image: "images/black-tshirt.jpg"
-}
 ];
 
 
