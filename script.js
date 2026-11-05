@@ -5,11 +5,13 @@
 const products = [
 
     {
-        id: 1,
-        name: "Royal Black Hoodie",
-        category: "Fashion",
-        price: 2499,
-        icon: "🖤"
+      {
+    id: 13,
+    name: "ZEN Black T-Shirt",
+    category: "Fashion",
+    price: 999,
+    image: "images/black-tshirt.jpg"
+}
     },
 
     {
