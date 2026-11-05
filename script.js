@@ -407,7 +407,8 @@ function closeCartOutside(event) {
 /* =========================
    ZEN NATION CHECKOUT
 ========================= */
-
+console.log("ZEN CONFIG:", window.ZEN_CONFIG);
+console.log("SUPABASE URL:", window.ZEN_CONFIG?.SUPABASE_URL);
 const zenSupabase = window.supabase.createClient(
     window.ZEN_CONFIG.SUPABASE_URL,
     window.ZEN_CONFIG.SUPABASE_ANON_KEY
